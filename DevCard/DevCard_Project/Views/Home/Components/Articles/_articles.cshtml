@@ -2,24 +2,32 @@
 
 <section class="latest-blog-section p-3 p-lg-5">
     <div class="container">
-        <h2 class="section-title font-weight-bold mb-5">آخرین مقالات</h2>
+        <h2 class="section-title font-weight-bold mb-5">لیست خدمات شرکت</h2>
         <div class="row">
             @foreach (var article in Model)
             {
                 <div class="col-md-4 mb-5">
                     <div class="card blog-post-card">
-                        <img class="card-img-top" src="~/assets/images/blog/@article.Image" alt="@article.Description" title="@article.Description">
+                        <img class="card-img-top" src="~/assets/images/@article.Image" alt="@article.Description" title="@article.Description">
                         <div class="card-body">
                             <h5 class="card-title">
-                                <a class="theme-link" href="blog-post.html">
-                                    @article.Id + @article.Title
+                                <a class="theme-link">
+                                    @article.Id - @article.Title
                                 </a>
                             </h5>
-                            <p class="card-text">
-                                @article.Description
-                            </p>
-                            <p class="mb-0"><a class="more-link" href="blog-post.html">ادامه مطلب</a></p>
-
+                            <div class="MuiBox-root muirtl-14cqli2">
+                                <div class="MuiBox-root muirtl-79elbk">
+                                    <ul class="mt-2 list-disc list-inside">
+                                        @foreach (var item in article.Description)
+                                        {
+                                            <li>
+                                                @item
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                            <p class="mb-0"><a class="more-link" href="@article.Link">ادامه مطلب</a></p>
                         </div>
                     </div>
                 </div>
