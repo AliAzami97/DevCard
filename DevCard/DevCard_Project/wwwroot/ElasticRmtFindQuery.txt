@@ -1,0 +1,68 @@
+*** پل ***
+SibanLog.ModuleName : "RMT" and SibanLog.Operation : "RmtConfirm" and SibanLog.Request:{ Name  : "RMTTYPE" and Value : "4"} 
+
+
+
+*** پایا تکی ****
+--پایا سند نخورده (با دسترسی کاربر شعبه) بالای سقف دو مرحله ای با کد رهگیری
+--پایا سند خورده (با دسترسی مدیر یا رییس شعبه)  با شماره سند
+--پایا سند خورده (با هر دسترسی )  زیر سقف مبلغ دو مرحله ای
+SibanLog.ModuleName : "RMT" and SibanLog.Operation : "RmtConfirm" and SibanLog.Request:{ Name  : "RMTTYPE" and Value : "2"} and SibanLog.Request:{ Name :"GROUPTYPE" and Value :"1"}
+
+
+
+*** ساتنا تکی ****
+--ساتنا سند نخورده (با دسترسی کاربر شعبه) با کد رهگیری
+--ساتنا سند خورده (با دسترسی مدیر یا رییس شعبه) با کد رهگیری 
+SibanLog.ModuleName : "RMT" and SibanLog.Operation : "RmtConfirm" and SibanLog.Request:{ Name  : "RMTTYPE" and Value : "1"} and SibanLog.Request:{ Name :"GROUPTYPE" and Value :"1"}
+
+
+
+
+*** پایا گروهی****
+-- پایا سند خورده (با هر دسترسی و مبلغی ) با کد رهگیری   
+SibanLog.ModuleName : "RMT" and SibanLog.Operation : "RmtConfirm" and SibanLog.Request:{ Name  : "RMTTYPE" and Value : "2"} and SibanLog.Request:{ Name :"GROUPTYPE" and Value :"2"}
+
+
+
+
+*** ساتنا گروهی****
+-- ساتنا سند نخورده (با دسترسی کاربر شعبه) با کد رهگیری
+--ساتنا سند خورده (با دسترسی مدیر یا رییس شعبه) با کد رهگیری 
+SibanLog.ModuleName : "RMT" and SibanLog.Operation : "RmtConfirm" and SibanLog.Request:{ Name  : "RMTTYPE" and Value : "1"} and SibanLog.Request:{ Name :"GROUPTYPE" and Value :"2"}
+
+
+
+
+***  حواله های دو مرحله ای (تایید مدیر) ***
+-- پایا تکی تایید مدیرشده (با دسترسی کاربر شعبه) با کد رهگیری
+SibanLog.ModuleName : "RMT" and SibanLog.Operation :"RmtAcceptByManager" and SibanLog.Request:{ Name  : "RMTTYPE" and Value : "2"} and SibanLog.Request:{ Name :"GROUPTYPE" and Value :"1"}
+
+-- ساتنا  تکی تایید مدیرشده  (با دسترسی کاربر شعبه) با کد رهگیری
+SibanLog.ModuleName : "RMT" and SibanLog.Operation :"RmtAcceptByManager" and SibanLog.Request:{ Name  : "RMTTYPE" and Value : "1"} and SibanLog.Request:{ Name :"GROUPTYPE" and Value :"1"}
+
+-- ساتنا  گروهی تایید مدیرشده  (با دسترسی کاربر شعبه) با کد رهگیری
+SibanLog.ModuleName : "RMT" and SibanLog.Operation :"RmtAcceptByManager" and SibanLog.Request:{ Name  : "RMTTYPE" and Value : "1"} and SibanLog.Request:{ Name :"GROUPTYPE" and Value :"2"}
+
+
+
+
+***  حواله های دو مرحله ای (صدور سند) ***
+-- پایا تکی سند خورده (با دسترسی کاربر شعبه) با کد رهگیری
+SibanLog.ModuleName : "RMT" and SibanLog.Operation :"RmtDocIssuance" and SibanLog.Request:{ Name  : "RMTTYPE" and Value : "2"} and SibanLog.Request:{ Name :"GROUPTYPE" and Value :"1"}
+
+-- ساتنا  تکی سند خورده (با دسترسی کاربر شعبه) با کد رهگیری
+SibanLog.ModuleName : "RMT" and SibanLog.Operation :"RmtDocIssuance" and SibanLog.Request:{ Name  : "RMTTYPE" and Value : "1"} and SibanLog.Request:{ Name :"GROUPTYPE" and Value :"1"}
+
+-- ساتنا  گروهی سند خورده (با دسترسی کاربر شعبه) با کد رهگیری
+SibanLog.ModuleName : "RMT" and SibanLog.Operation :"RmtDocIssuance" and SibanLog.Request:{ Name  : "RMTTYPE" and Value : "1"} and SibanLog.Request:{ Name :"GROUPTYPE" and Value :"2"}
+
+
+
+
+***  حواله های لغو شده ***
+-- پایا
+SibanLog.ModuleName : "RMT" and SibanLog.Operation :"RmtCancel" and SibanLog.Request:{ Name  : "RMTTYPE" and Value : "2"} 
+
+--ساتنا
+SibanLog.ModuleName : "RMT" and SibanLog.Operation :"RmtCancel" and SibanLog.Request:{ Name  : "RMTTYPE" and Value : "1"} 
