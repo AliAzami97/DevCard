@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
 
 namespace DevCard_Project.Models
 {
@@ -9,13 +11,16 @@ namespace DevCard_Project.Models
         [Required(ErrorMessage ="اجباریه")]
         public string Name { get; set; }
 
-        [EmailAddress]
+        [EmailAddress(ErrorMessage = "مقدار وارد شده ایمیل صحیح نیست")]
         [Required(ErrorMessage = " اینم اجباریه")]
         public string Email { get; set; }
 
-        public string Service { get; set; }
+        public int? Service { get; set; }
 
         [Required(ErrorMessage = "حالا یه چارتا کلمه بنویسی، چی میشه؟!")]
         public string Message { get; set; }
+        
+        [ValidateNever]
+        public SelectList? Services { get; set; }
     }
 }
