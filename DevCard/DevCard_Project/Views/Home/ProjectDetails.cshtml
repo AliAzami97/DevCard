@@ -1,0 +1,34 @@
+﻿@model Project
+
+@{
+    ViewData["Title"] = "جزئیات محصولات";
+}
+
+<section class="cta-section theme-bg-light py-5">
+    <div class="container text-center single-col-max-width">
+    </div>
+</section>
+<section class="contact-section px-3 py-5 p-md-5">
+    <div class="container">
+        <table class="table-bordered alert-primary table-hover">
+            <thead>
+                <tr class="text-center">
+                    <td>شناسه</td>
+                    <td>تصویر</td>
+                    <td>اسم محصول</td>
+                    <td>توضیحات</td>
+                    <td>کاربر</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.Id</td>
+                    <td><img src="~/assets/images/@Model.Image" width="100px"></td>
+                    <td>@Model.Name</td>
+                    <td>@Model.Description</td>
+                    <td>@Model.Client</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

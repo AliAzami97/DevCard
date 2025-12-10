@@ -1,12 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Mime;
+using DevCard_Project.Data;
 using DevCard_Project.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace DevCard_Project.Controllers
 {
+    //[Route("/teste/contacte/{action}")]
+    //[Route("/teste/contacte")]
     public class HomeController : Controller
     {
         private readonly List<Service> _selectList = new List<Service>
@@ -16,14 +19,16 @@ namespace DevCard_Project.Controllers
             new Service(3, "Platin"),
             new Service(4, "nul")
         };
-
+        //[Route("MyIndex")]
         public IActionResult Index()
         {
             return View();
         }
 
-        [HttpGet]
-        public IActionResult Contact()
+        //[HttpGet]
+        [HttpGet("ContactPage")]
+        //[Route("ContactPage/{esm}/{type}/{salsakht}")]
+        public IActionResult Contact(string esm, string type, int salsakht)
         {
             var model = new Contact
             {
@@ -76,6 +81,14 @@ namespace DevCard_Project.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+
+
+        public IActionResult ProjectDetails(int id)
+        {
+            var model = ProjectDetail.GetProjectBy(id);
+            return View(model);
         }
     }
 }
